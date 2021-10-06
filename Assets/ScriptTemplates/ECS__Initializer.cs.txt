@@ -1,0 +1,12 @@
+﻿using Morpeh;
+using UnityEngine;
+using Unity.IL2CPP.CompilerServices;
+
+[CreateAssetMenu(menuName = "ECS/Initializers/" + nameof(#SCRIPTNAME#))]
+public sealed class #SCRIPTNAME# : Initializer {
+    public override void OnAwake() {
+    }
+
+    public override void Dispose() {
+    }
+}

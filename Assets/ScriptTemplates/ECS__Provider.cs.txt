@@ -1,0 +1,5 @@
+﻿using Morpeh;
+using Unity.IL2CPP.CompilerServices;
+
+public sealed class #SCRIPTNAME# : MonoProvider<{YOUR_COMPONENT}> {
+}
