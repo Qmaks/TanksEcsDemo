@@ -16,12 +16,14 @@ public sealed class PlayerCreateSystem : UpdateSystem
     private float Defence;
 
     private Transform  playerSpawn;
+    private CinemachineVirtualCamera camera;
 
     private Filter filter;
     public override void OnAwake()
     {
         filter = World.Filter.With<CreatePlayerCommand>();
         playerSpawn = FindObjectOfType<SceneReference>().PlayerSpawn;
+        camera      = FindObjectOfType<CinemachineVirtualCamera>();
     }
 
     public override void OnUpdate(float deltaTime) {
@@ -41,10 +43,8 @@ public sealed class PlayerCreateSystem : UpdateSystem
         playerSpawn = FindObjectOfType<SceneReference>().PlayerSpawn;
         var player = GameObject.Instantiate(PlayerPrefab, playerSpawn.position, Quaternion.identity);
         
-        var cam = FindObjectOfType<CinemachineVirtualCamera>();
-        cam.Follow = player.transform;
-        
-        
+        camera.Follow = player.transform;
+
         player.AddComponent<EntityRef>().Entity = entity;
         
         entity.AddComponent<PlayerInputComponent>();
