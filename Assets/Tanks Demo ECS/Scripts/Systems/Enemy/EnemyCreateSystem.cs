@@ -57,6 +57,9 @@ public sealed class EnemyCreateSystem : UpdateSystem
             
             ref var defenceComponent       = ref entity.AddComponent<DefenceComponent>();
             defenceComponent.Defence       = enemy.Defence;
+            
+            ref var attackComponent       = ref entity.AddComponent<AttackComponent>();
+            attackComponent.Attack        = enemy.Atack;
 
             entity.AddComponent<HealthUIComponent>();
             entity.AddComponent<CreatedComponent>();

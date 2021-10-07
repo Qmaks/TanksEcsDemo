@@ -20,7 +20,7 @@ public class EnemyMono : MonoBehaviour
                 !otherEntityRef.Entity.Has<DamageComponent>())
             {
                 ref var damage = ref otherEntityRef.Entity.AddComponent<DamageComponent>();
-                damage.Value   = 1; //Refactor : Сделать DamageOtherComponent
+                damage.Value   = entityRef.Entity.GetComponent<AttackComponent>().Attack; 
             }
         }
     }
