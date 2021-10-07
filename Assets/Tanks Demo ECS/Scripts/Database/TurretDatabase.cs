@@ -2,18 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 [CreateAssetMenu()]
 public class TurretDatabase : ScriptableObject
 {
-    public TurretDefinitions[] Turrets;
+    [SerializeField]
+    private TurretDefinitions[] Turrets;
     
     [Serializable]
     public class TurretDefinitions
     {
         public GameObject TurretPrefab;
-        public int Atack;
+        public int Attack;
     }
 
     public int Length => Turrets.Length;

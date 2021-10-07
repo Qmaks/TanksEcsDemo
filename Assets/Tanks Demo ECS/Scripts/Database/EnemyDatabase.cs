@@ -18,7 +18,7 @@ public class EnemyDatabase : ScriptableObject
     {
         public GameObject Prefab;
         public int Speed;
-        public int Atack;
+        public int Attack;
         [Range(0f,1f)]
         public float Defence;
         public int Health;

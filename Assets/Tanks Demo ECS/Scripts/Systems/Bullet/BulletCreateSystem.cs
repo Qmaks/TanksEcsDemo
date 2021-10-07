@@ -9,8 +9,10 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(BulletCreateSystem))]
 public sealed class BulletCreateSystem : UpdateSystem
 {
-    public GameObject BulletPrefab;
-    public float BulletSpeed = 50f;
+    [SerializeField]
+    private GameObject BulletPrefab;
+    [SerializeField]
+    private float BulletSpeed = 50f;
     
     private Filter filter;
     

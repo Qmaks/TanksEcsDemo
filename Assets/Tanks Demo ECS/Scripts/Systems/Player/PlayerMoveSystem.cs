@@ -8,8 +8,10 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerMoveSystem))]
 public sealed class PlayerMoveSystem : FixedUpdateSystem
 {
-    public float PlayerMoveSpeed;
-    public float PlayerRotateSpeed;
+    [SerializeField]
+    private float PlayerMoveSpeed;
+    [SerializeField]
+    private float PlayerRotateSpeed;
 
     
     private Filter filter;

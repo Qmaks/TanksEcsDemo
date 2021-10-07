@@ -10,11 +10,16 @@ using Unity.IL2CPP.CompilerServices;
 public sealed class PlayerInputSystem : UpdateSystem {
 
     [Header("Input")]
-    public string FireButton;
-    public string Horizontal;
-    public string Vertical;
-    public string NextTurretButton;
-    public string PreviousTurretButton;
+    [SerializeField]
+    private string FireButton;
+    [SerializeField]
+    private string Horizontal;
+    [SerializeField]
+    private string Vertical;
+    [SerializeField]
+    private string NextTurretButton;
+    [SerializeField]
+    private string PreviousTurretButton;
     
     private Filter filter;
     

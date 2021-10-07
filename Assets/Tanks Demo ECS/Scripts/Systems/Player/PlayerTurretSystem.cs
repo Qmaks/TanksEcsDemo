@@ -9,7 +9,8 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerTurretSystem))]
 public sealed class PlayerTurretSystem : UpdateSystem
 {
-    public TurretDatabase TurretDatabase;
+    [SerializeField]
+    private TurretDatabase TurretDatabase;
 
     private Filter filterNextTurret;
     private Filter filterPrevTurret;
@@ -57,14 +58,14 @@ public sealed class PlayerTurretSystem : UpdateSystem
         playerWeapon.ind = Mathf.Clamp(playerWeapon.ind, 0, TurretDatabase.Length - 1);
         Destroy(playerWeapon.gameObject);
         var newTurret = TurretDatabase.GetTurret(playerWeapon.ind);
-        playerWeapon.Attack = newTurret.Atack;
+        playerWeapon.Attack = newTurret.Attack;
         playerWeapon.gameObject = Instantiate(newTurret.TurretPrefab, prefabLinks.TurretTransform);
     }
     
     private void CreateTurret(ref PlayerWeaponComponent playerWeapon,ref PlayerPrefabLinksComponent prefabLinks)
     {
         var newTurret = TurretDatabase.GetTurret(playerWeapon.ind);
-        playerWeapon.Attack = newTurret.Atack;
+        playerWeapon.Attack = newTurret.Attack;
         playerWeapon.gameObject = Instantiate(newTurret.TurretPrefab, prefabLinks.TurretTransform);
     }
 }

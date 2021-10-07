@@ -8,15 +8,19 @@ using UnityEngine.AI;
 public sealed class EnemyCreateSystem : UpdateSystem
 {
     [Header("Static data")]
-    public EnemyDatabase EnemyDatabase;
+    [SerializeField]
+    private EnemyDatabase EnemyDatabase;
     [Header("Parametrs")]
-    public int MaxEnemyCount;
+    [SerializeField]
+    private int MaxEnemyCount;
     
     [Header("Global In Events")]
-    public GlobalEventInt EventDestroyEnemy;
+    [SerializeField]
+    private GlobalEventInt EventDestroyEnemy;
 
     [Header("Global Out Events")]
-    public GlobalEventInt EventSpawnEnemy;
+    [SerializeField]
+    private GlobalEventInt EventSpawnEnemy;
     
     private Transform SpawnRoot;
     private int enemyCount = 0;
@@ -59,7 +63,7 @@ public sealed class EnemyCreateSystem : UpdateSystem
             defenceComponent.Defence       = enemy.Defence;
             
             ref var attackComponent       = ref entity.AddComponent<AttackComponent>();
-            attackComponent.Attack        = enemy.Atack;
+            attackComponent.Attack        = enemy.Attack;
 
             entity.AddComponent<HealthUIComponent>();
             entity.AddComponent<CreatedComponent>();

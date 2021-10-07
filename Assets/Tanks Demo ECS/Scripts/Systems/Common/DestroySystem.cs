@@ -9,8 +9,10 @@ public sealed class DestroySystem : LateUpdateSystem
     private Filter filter;
 
     [Header("Out Event")]
-    public GlobalEventInt EnemyDestroy;
-    public GlobalEvent    PlayerDestroy;
+    [SerializeField]
+    private GlobalEventInt EnemyDestroy;
+    [SerializeField]
+    private GlobalEvent    PlayerDestroy;
 
     public override void OnAwake()
     {
