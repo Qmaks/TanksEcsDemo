@@ -43,8 +43,8 @@ public sealed class BulletCreateSystem : UpdateSystem
             
             ref var attack  = ref entity.AddComponent<AttackComponent>();
             attack.Attack   = entityPlayer.GetComponent<PlayerWeaponComponent>().Attack;
-            
-            shell.GetComponent<ShellMono>().Entity = entity;
+
+            shell.gameObject.AddComponent<EntityRef>().Entity = entity;
         }
     }
 }

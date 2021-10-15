@@ -69,7 +69,7 @@ public sealed class EnemyCreateSystem : UpdateSystem
             entity.AddComponent<CreatedComponent>();
             
             enemyTransform.gameObject.AddComponent<EntityRef>().Entity = entity;
-            enemyTransform.gameObject.AddComponent<EnemyMono>();
+            enemyTransform.gameObject.AddComponent<OnCollisionStayRouter>();
             
             EventSpawnEnemy?.NextFrame(entity.ID);
         }
