@@ -16,4 +16,4 @@
 
 
 ##  Known issues
-- Bullets are not removed by timer
+- No prefab pooling
