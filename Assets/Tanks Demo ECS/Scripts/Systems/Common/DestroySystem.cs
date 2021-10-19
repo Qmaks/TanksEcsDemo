@@ -16,7 +16,7 @@ public sealed class DestroySystem : LateUpdateSystem
 
     public override void OnAwake()
     {
-        filter = World.Filter.With<TransformRef>().With<DestroyComponent>();
+        filter = World.Filter.With<TransformRef>().With<DestroyComponent>().Without<TimerComponent>();
     }
 
     public override void OnUpdate(float deltaTime) {

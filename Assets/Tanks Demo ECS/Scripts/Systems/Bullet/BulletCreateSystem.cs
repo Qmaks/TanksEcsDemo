@@ -13,7 +13,9 @@ public sealed class BulletCreateSystem : UpdateSystem
     private GameObject BulletPrefab;
     [SerializeField]
     private float BulletSpeed = 50f;
-    
+    [SerializeField]
+    private float BulletDestroyDelay = 5f;
+
     private Filter filter;
     
     public override void OnAwake()
@@ -40,6 +42,12 @@ public sealed class BulletCreateSystem : UpdateSystem
             transformRef.Transform = shell.transform;
             
             entity.AddComponent<BulletComponent>();
+            
+            ref var timer = ref entity.AddComponent<TimerComponent>();
+            timer.Timer = BulletDestroyDelay;
+            
+            entity.AddComponent<DestroyComponent>();
+
             
             ref var attack  = ref entity.AddComponent<AttackComponent>();
             attack.Attack   = entityPlayer.GetComponent<PlayerWeaponComponent>().Attack;

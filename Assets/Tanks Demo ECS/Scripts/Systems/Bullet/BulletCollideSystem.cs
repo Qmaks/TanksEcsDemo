@@ -9,14 +9,14 @@ public sealed class BulletCollideSystem : UpdateSystem {
     
     public override void OnAwake()
     {
-        filter = World.Filter.With<BulletComponent>().With<CollisionWithComponent>().Without<DestroyComponent>();
+        filter = World.Filter.With<BulletComponent>().With<CollisionWithComponent>();
     }
 
     public override void OnUpdate(float deltaTime) {
         
         foreach (var entity in filter)
         {
-            entity.AddComponent<DestroyComponent>();
+            entity.RemoveComponent<TimerComponent>();
             entity.RemoveComponent<CollisionWithComponent>();
         }
     }
