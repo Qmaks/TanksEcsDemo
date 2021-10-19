@@ -16,5 +16,4 @@
 
 
 ##  Known issues
-- No object pooling
 - Bullets are not removed by timer
